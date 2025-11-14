@@ -1,0 +1,34 @@
+4 -->  create table shares(
+shares_id int AUTO_INCREMENT PRIMARY KEY,
+review_id int REFERENCES  reviews(reviews_id ),
+user_id int REFERENCES users (users_id) );
+
+
+1 -->  create table users(
+users_id int AUTO_INCREMENT PRIMARY KEY,
+first_name varchar(20) ,
+last_name varchar(20) ,
+email varchar(30) UNIQUE,
+password char(15),
+moblile char(10),
+birth DATE );
+
+3 --> create table reviews(
+reviews_id int PRIMARY KEY AUTO_INCREMENT,
+movies_id int REFERENCES movies(movies_id),
+review varchar(50),
+rating int,
+users_id int REFERENCES users(users_id),
+modified TIMESTAMP
+
+);
+
+
+
+
+
+2 --> create table movies(
+movies_id int AUTO_INCREMENT PRIMARY KEY,
+title varchar(50),
+release_date DATE );
+
